@@ -45,28 +45,27 @@ class LerpFunctionExpressionFactory implements LerpExpressionFactory {
       typeName: 'int',
       typeLibUri: null,
       functionName: 'lerpInt',
-      functionLibUri: 'package:lerp/lerp.dart', 
+      functionLibUri: 'package:lerp/lerp.dart',
     ),
     SupportedLerpFunction(
       typeName: 'bool',
       typeLibUri: null,
       functionName: 'lerpBool',
-      functionLibUri: 'package:lerp/lerp.dart', 
+      functionLibUri: 'package:lerp/lerp.dart',
     ),
-SupportedLerpFunction(
+    SupportedLerpFunction(
       typeName: 'Enum',
       typeLibUri: null,
       functionName: 'lerpEnum',
-      functionLibUri: 'package:lerp/lerp.dart', 
+      functionLibUri: 'package:lerp/lerp.dart',
     ),
-
   ];
 
   @override
   Expression? createLerpExpression(DefaultAccessor accessor) {
     var type = toDartCodeType(accessor.type);
     if (accessor.type.element is EnumElement) {
-      type=Type('Enum');
+      type = Type('Enum');
     }
     var function = supportedFunctions.firstWhereOrNull(
       (f) => f.supportsType(type),

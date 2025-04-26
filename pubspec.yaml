@@ -17,8 +17,7 @@ dependencies:
   build: ^2.4.2
   collection: ^1.19.1
   dart_code: ^0.2.0
-  style_builder_annotation:
-    path: ../style_builder_annotation #TODO fix when published
+  style_builder_annotation: ^1.0.0
 
 dev_dependencies:
   lints: ^5.0.0

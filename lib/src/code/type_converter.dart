@@ -15,7 +15,8 @@ Type toDartCodeType(DartType dartType, {bool nullable = false}) {
     libraryUri = null;
   }
   // prevent linter warnings for flutter types
-  if (libraryUri!=null && libraryUri.startsWith('package:flutter/src/painting/')) {
+  if (libraryUri != null &&
+      libraryUri.startsWith('package:flutter/src/painting/')) {
     libraryUri = 'package:flutter/painting.dart';
   }
   return Type(name, libraryUri: libraryUri, nullable: nullable);
