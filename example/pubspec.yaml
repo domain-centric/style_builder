@@ -1,0 +1,25 @@
+name: example
+description: A Flutter example project that uses style_builder to generate style classes and show how they are used.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lerp: ^0.0.2
+  style_builder_annotation:
+    path: ../../style_builder_annotation  # TODO use pub.dev version when available
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.15
+  style_builder:
+    path: ../../style_builder # TODO use pub.dev version when available
+
+flutter:
+  uses-material-design: true
