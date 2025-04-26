@@ -1,13 +1,12 @@
 name: style_builder
 description: A generator for building style extensions for Flutter.
 version: 1.0.0
-publish_to: none #to publish to pub.dev, remove this line and after fixing style_builder_annotation
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/domain-centric/style_builder
 
 topics:
  - theme
  - style
- - extension
+ - theme extension
  - codegen
 
 environment:
@@ -19,7 +18,7 @@ dependencies:
   collection: ^1.19.1
   dart_code: ^0.2.0
   style_builder_annotation:
-    path: ../style_builder_annotation
+    path: ../style_builder_annotation #TODO fix when published
 
 dev_dependencies:
   lints: ^5.0.0
