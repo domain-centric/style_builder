@@ -169,6 +169,24 @@ In example:
   MyCompanyStyle.resolve(context).tertiary
 ```
 
+You can also add a style class ass optional parameter. 
+In example, you created MyWidget with a generated generated MyWidgetStyle class. You would use it as:
+```dart
+class MyWidget extends StatelessWidget {
+  /// You can pass a custom style to the widget constructor,
+  /// which will override default values
+  final MyWidgetStyle? style;
+
+  const MyWidget({super.key, this.style});
+
+  @override
+  Widget build(BuildContext context) {
+    // Resolve the style using the generated MyWidgetStyle class
+    var resolvedStyle = MyWidgetStyle.resolve(context, style);
+    /// return your implementation here, using resolvedStyle
+  }
+}
+```
 ## Examples
 
 An example project can be found here: https://github.com/domain-centric/style_builder/tree/main/example
