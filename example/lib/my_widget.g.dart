@@ -103,4 +103,8 @@ class MyWidgetStyle extends i1.ThemeExtension<MyWidgetStyle> {
     ];
     return "MyWidgetStyle(${values.join(', ')})";
   }
+
+  @override
+  int get hashCode =>
+      Object.hash(borderRadius, elevation, padding, surface, shadow, textStyle);
 }

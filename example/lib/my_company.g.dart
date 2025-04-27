@@ -69,4 +69,7 @@ class MyCompanyStyle extends i1.ThemeExtension<MyCompanyStyle> {
     ];
     return "MyCompanyStyle(${values.join(', ')})";
   }
+
+  @override
+  int get hashCode => Object.hash(primary, secondary, tertiary);
 }

@@ -42,6 +42,7 @@ class StyleClass extends Class {
     CopyWithMethod(sourceClass),
     LerpMethod(sourceClass),
     ToStringMethod(sourceClass),
+    HashCodeMethod(sourceClass),
   ];
 
   static Field createDefaultsField(SourceClass sourceClass) => Field(
@@ -317,4 +318,23 @@ class ToStringMethod extends Method {
   static Statement returnResult(SourceClass sourceClass) => Statement.return$(
     Expression.ofString("${sourceClass.styleClassName}(\${values.join(', ')})"),
   );
+}
+
+class HashCodeMethod extends Method {
+  HashCodeMethod(SourceClass sourceClass)
+    : super.getter(
+        'hashCode',
+        createBody(sourceClass),
+        annotations: [Annotation.override()],
+        returnType: Type.ofInt(),
+      );
+
+  static Expression createBody(SourceClass sourceClass) =>
+      Expression.ofType(Type('Object')).callMethod(
+        'hash',
+        parameterValues: ParameterValues([
+          for (var defaultAccessor in sourceClass.defaultAccessors)
+            ParameterValue(Expression.ofVariable(defaultAccessor.name)),
+        ]),
+      );
 }
