@@ -99,26 +99,6 @@ class SupportedLerpFunction {
   bool supportsType(Type type) =>
       type.name == typeName && type.libraryUri == typeLibUri;
 }
-// TODO remove if replaced with LerpFunctionExpressionFactory
-// /// Creates a expression to lerp int's
-// class IntLerpExpressionFactory implements LerpExpressionFactory {
-//   @override
-//   Expression? createLerpExpression(DefaultAccessor accessor) {
-//     if (!accessor.type.isDartCoreInt) {
-//       return null;
-//     }
-//     var a = accessor.name;
-//     var b = 'other.${accessor.name}';
-//     return Expression([
-//       Code(
-//         ' $a == null && $b == null ? null :'
-//         ' $a == null ? ($b! * t).round() :'
-//         ' $b == null ? ($a! * (1 - t)).round() :'
-//         ' ($a! + ($b! - $a!) * t).round()',
-//       ),
-//     ]);
-//   }
-// }
 
 /// Creates an expression for class methods with the following signature:
 /// * are names lerp
@@ -181,30 +161,3 @@ ParameterValues _createLerpMethodParameterValues(DefaultAccessor accessor) {
     ParameterValue(Expression.ofVariable('t')),
   ]);
 }
-
-/// Creates a expression to lerp ThemeExtension's
-/// TODO this does not work because the type of the DefaultAccessor is likely not known (still to be generated)
-// class ThemeExtensionLerpExpressionFactory implements LerpExpressionFactory {
-//   @override
-//   Expression? createLerpExpression(DefaultAccessor accessor) {
-//     if (!isThemeExtension(accessor.type)) {
-//       return null;
-//     }
-//     var a = accessor.name;
-//     var b = 'other.${accessor.name}';
-//     return Expression([
-//       Code(
-//         '$a == null && $b == null ? null :'
-//         '$a == null ? $b.lerp(null, t) :'
-//         '$b == null ? $a.lerp(null, t) :'
-//         '$a.lerp($b, t);',
-//       ),
-//     ]);
-//   }
-
-//   bool isThemeExtension(DartType type) {
-//     var type2 = toDartCodeType(type);
-//     return type2.name.startsWith('ThemeExtension') &&
-//         type2.libraryUri == 'package:flutter/material.dart';
-//   }
-// }
