@@ -1,16 +1,17 @@
+![](https://raw.githubusercontent.com/domain-centric/style_builder/refs/heads/main/assets/style_builder.png)
+
 # style_builder
 
-Welcome to `style_builder`, the code generator for Flutter style classes that extend ThemeExtension. 
+Welcome to `style_builder`, the code generator for Flutter style (ThemeExtension) classes. 
 The code generator helps to:
 * minimize the required boilerplate code (without ugly part statements)
 * define cosmetic default values, that could be derived from the BuildContext (e.g. current main theme)
 * resolve cosmetic values as intended by the flutter team 
 
-All this without annoying part files.
 
 ## Theme extensions
 
-For more information on ThemeExtensions: https://youtu.be/8-szcYzFVao
+For more information on ThemeExtensions see: https://youtu.be/8-szcYzFVao
 
 ## Install
 
@@ -26,16 +27,16 @@ flutter pub add --dev style_builder
 flutter pub add style_builder_annotation
 ```
 
-## Add imports and part directive
+## Define your style class
 
 style_builder is a generator for classes that are annotated with @GenerateStyleClass().
 
 The annotated class provides:
-* The name of the style class. It typically ends with "Default".
-  e.g. "MyWidgetDefault" will generate "MyWidgetStyle".
 * The cosmetic properties of the style class.
- 
-Note an annotated class:
+* The name of the style class. It typically ends with "Default".
+  e.g. "MyWidgetDefault" will generate a "MyWidgetStyle" class.
+
+ Note an annotated class:
 * Must be a const class.
 * Provides default values for the all cosmetic properties. 
   The properties and their default values are defined by either:
@@ -44,6 +45,7 @@ Note an annotated class:
   * none static methods without parameters
   * none static methods with a BuildContext parameter
 
+An example:
 ```dart
 //file: my_company.dart;
 
@@ -86,7 +88,7 @@ To run the code generator, run the following commands:
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
-## Generated code
+## The generated code
 
 This generates the following code:
 
@@ -158,6 +160,15 @@ class MyCompanyStyle extends i1.ThemeExtension<MyCompanyStyle> {
 }
 ```
 
-## Example
+## Using a generated style class
+
+Use the static resolve method of the generated style class in your widget tree. 
+It returns a record with none-nullable cosmetic values.
+In example:
+```dart
+  MyCompanyStyle.resolve(context).tertiary
+```
+
+## Examples
 
 An example project can be found here: https://github.com/domain-centric/style_builder/tree/main/example

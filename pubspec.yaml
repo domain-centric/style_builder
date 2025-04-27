@@ -6,7 +6,7 @@ repository: https://github.com/domain-centric/style_builder
 topics:
  - theme
  - style
- - theme extension
+ - theme-extension
  - codegen
 
 environment:
