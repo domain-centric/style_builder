@@ -60,4 +60,13 @@ class MyCompanyStyle extends i1.ThemeExtension<MyCompanyStyle> {
             secondary: i2.Color.lerp(secondary, other.secondary, t),
             tertiary: i2.Color.lerp(tertiary, other.tertiary, t),
           );
+  @override
+  String toString() {
+    final values = <String>[
+      if (primary != null) 'primary: $primary',
+      if (secondary != null) 'secondary: $secondary',
+      if (tertiary != null) 'tertiary: $tertiary',
+    ];
+    return "MyCompanyStyle(${values.join(', ')})";
+  }
 }

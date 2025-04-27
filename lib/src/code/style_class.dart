@@ -41,6 +41,7 @@ class StyleClass extends Class {
     ResolveMethod(sourceClass),
     CopyWithMethod(sourceClass),
     LerpMethod(sourceClass),
+    ToStringMethod(sourceClass),
   ];
 
   static Field createDefaultsField(SourceClass sourceClass) => Field(
@@ -274,3 +275,46 @@ Type themeExtensionType(SourceClass sourceClass) => Type(
   libraryUri: 'package:flutter/material.dart',
   generics: [Type(sourceClass.styleClassName)],
 );
+
+// Creates a toString method for the style class
+// Example:
+// @override
+//       String toString() {
+//       final values = <String>[
+//         if (borderRadius != null) 'borderRadius: $borderRadius',
+//         if (elevation != null) 'elevation: $elevation',
+//       ];
+//       return 'MyWidgetStyle(${values.join(', ')})';
+//       }
+class ToStringMethod extends Method {
+  ToStringMethod(SourceClass sourceClass)
+    : super(
+        'toString',
+        createBody(sourceClass),
+        annotations: [Annotation.override()],
+        returnType: Type.ofString(),
+      );
+
+  static CodeNode createBody(SourceClass sourceClass) =>
+      Block([declareValuesVariable(sourceClass), returnResult(sourceClass)]);
+
+  static Statement declareValuesVariable(SourceClass sourceClass) => Statement([
+    KeyWord.final$,
+    Space(),
+    Statement.assignVariable(
+      'values',
+      Expression([
+        Code('<String>['),
+        for (var defaultAccessor in sourceClass.defaultAccessors)
+          Code(
+            ' if (${defaultAccessor.name} != null) \'${defaultAccessor.name}: \$${defaultAccessor.name}\', ',
+          ),
+        Code(']'),
+      ]),
+    ),
+  ], hasEndOfStatement: false);
+
+  static Statement returnResult(SourceClass sourceClass) => Statement.return$(
+    Expression.ofString("${sourceClass.styleClassName}(\${values.join(', ')})"),
+  );
+}

@@ -91,4 +91,16 @@ class MyWidgetStyle extends i1.ThemeExtension<MyWidgetStyle> {
             shadow: i3.Color.lerp(shadow, other.shadow, t),
             textStyle: i2.TextStyle.lerp(textStyle, other.textStyle, t),
           );
+  @override
+  String toString() {
+    final values = <String>[
+      if (borderRadius != null) 'borderRadius: $borderRadius',
+      if (elevation != null) 'elevation: $elevation',
+      if (padding != null) 'padding: $padding',
+      if (surface != null) 'surface: $surface',
+      if (shadow != null) 'shadow: $shadow',
+      if (textStyle != null) 'textStyle: $textStyle',
+    ];
+    return "MyWidgetStyle(${values.join(', ')})";
+  }
 }

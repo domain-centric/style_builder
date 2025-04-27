@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   lerp: ^0.0.2
-  style_builder_annotation:
-    path: ../../style_builder_annotation  # TODO use pub.dev version when available
+  style_builder_annotation: ^1.0.0
+  
 
 dev_dependencies:
   flutter_test:
