@@ -107,4 +107,14 @@ class MyWidgetStyle extends i1.ThemeExtension<MyWidgetStyle> {
   @override
   int get hashCode =>
       Object.hash(borderRadius, elevation, padding, surface, shadow, textStyle);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MyWidgetStyle &&
+          borderRadius == other.borderRadius &&
+          elevation == other.elevation &&
+          padding == other.padding &&
+          surface == other.surface &&
+          shadow == other.shadow &&
+          textStyle == other.textStyle;
 }

@@ -157,6 +157,27 @@ class MyCompanyStyle extends i1.ThemeExtension<MyCompanyStyle> {
             secondary: i2.Color.lerp(secondary, other.secondary, t),
             tertiary: i2.Color.lerp(tertiary, other.tertiary, t),
           );
+
+  @override
+  String toString() {
+    final values = <String>[
+      if (primary != null) 'primary: $primary',
+      if (secondary != null) 'secondary: $secondary',
+      if (tertiary != null) 'tertiary: $tertiary',
+    ];
+    return "MyCompanyStyle(${values.join(', ')})";
+  }
+
+  @override
+  int get hashCode => Object.hash(primary, secondary, tertiary);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MyCompanyStyle &&
+          primary == other.primary &&
+          secondary == other.secondary &&
+          tertiary == other.tertiary;
 }
 ```
 

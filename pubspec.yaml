@@ -16,7 +16,7 @@ dependencies:
   analyzer: ^7.4.4
   build: ^2.4.2
   collection: ^1.19.1
-  dart_code: ^0.2.0
+  dart_code: ^0.2.2
   style_builder_annotation: ^1.0.0
 
 dev_dependencies:

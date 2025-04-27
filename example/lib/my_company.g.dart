@@ -72,4 +72,11 @@ class MyCompanyStyle extends i1.ThemeExtension<MyCompanyStyle> {
 
   @override
   int get hashCode => Object.hash(primary, secondary, tertiary);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MyCompanyStyle &&
+          primary == other.primary &&
+          secondary == other.secondary &&
+          tertiary == other.tertiary;
 }

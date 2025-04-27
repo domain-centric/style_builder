@@ -43,6 +43,7 @@ class StyleClass extends Class {
     LerpMethod(sourceClass),
     ToStringMethod(sourceClass),
     HashCodeMethod(sourceClass),
+    EqualsMethod(sourceClass),
   ];
 
   static Field createDefaultsField(SourceClass sourceClass) => Field(
@@ -337,4 +338,40 @@ class HashCodeMethod extends Method {
             ParameterValue(Expression.ofVariable(defaultAccessor.name)),
         ]),
       );
+}
+
+// Creates an equals method for the style class
+// Example:
+// @override
+//       bool operator ==(Object other) =>
+//       identical(this, other) ||
+//       other is MyWidgetStyle &&
+//       field == otherStyle.field &&  ... etc
+class EqualsMethod extends Method {
+  EqualsMethod(SourceClass sourceClass)
+    : super.overrideOperator(
+        Operator.equals,
+        createBody(sourceClass),
+        parameter: createMethodParameter(sourceClass),
+        returnType: Type.ofBool(),
+      );
+
+  static Parameter createMethodParameter(SourceClass sourceClass) =>
+      Parameter.required('other', type: Type.ofObject());
+
+  static CodeNode createBody(SourceClass sourceClass) => Expression([
+    Code('identical(this, other)'),
+  ]).or(
+    <Expression>[
+      Expression.ofVariable(
+        'other',
+      ).isA(Expression.ofType(Type(sourceClass.styleClassName))),
+      ...sourceClass.defaultAccessors.map(
+        (defaultAccessor) =>
+            Expression.ofVariable(defaultAccessor.name).equalTo(
+              Expression.ofVariable('other').getProperty(defaultAccessor.name),
+            ),
+      ),
+    ].reduce((a, b) => a.and(b)),
+  );
 }
