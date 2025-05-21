@@ -3,7 +3,10 @@
 [style_builder](https://pub.dev/packages/style_builder) is a generator for classes that are annotated with @GenerateStyleClass().
 
 The annotated class provides:
-* The cosmetic properties of the style class.
+* The cosmetic properties of the style class. Each property has a:
+  * type
+  * name
+  * default value
 * The name of the style class. It typically ends with "Default".
   e.g. "MyWidgetDefault" will generate a "MyWidgetStyle" class.
 
