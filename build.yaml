@@ -1,3 +1,16 @@
+targets:
+  $default:
+    sources:
+      - doc/**
+      - lib/**
+      - bin/**
+      - test/**
+      - pubspec.*
+      - $package$
+    builders:
+      documentation_builder|documentation_builder:
+        enabled: True
+      
 builders:
   style_builder:
     import: "package:style_builder/style_builder.dart"

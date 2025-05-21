@@ -2,6 +2,7 @@ name: style_builder
 description: A generator for building style extensions for Flutter.
 version: 1.1.0
 repository: https://github.com/domain-centric/style_builder
+documentation: https://github.com/domain-centric/style_builder.wiki
 
 topics:
  - theme
@@ -22,4 +23,6 @@ dependencies:
 dev_dependencies:
   lints: ^5.0.0
   test: ^1.24.0
-  build_runner: ^2.4.15
+  build_runner: ^2.4.1
+  documentation_builder: 
+    path: ../documentation_builder #FIXME

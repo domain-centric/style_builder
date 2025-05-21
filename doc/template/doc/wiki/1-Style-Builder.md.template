@@ -1,0 +1,7 @@
+![](https://github.com/domain-centric/style_builder/wiki/style_builder.png)
+
+Welcome to {{referenceLink('style_builder')}}, the code generator for Flutter style (ThemeExtension) classes. 
+The code generator helps to:
+* minimize the required boilerplate code (without ugly part statements)
+* define cosmetic default values, that could be derived from the BuildContext (e.g. from the current theme)
+* resolve cosmetic values as intended by the flutter team 

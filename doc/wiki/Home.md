@@ -1,4 +1,4 @@
-[//]: # (This file was generated from: doc/template/README.md.template using the documentation_builder package)
+[//]: # (This file was generated from: doc/template/doc/wiki/Home.md.template using the documentation_builder package)
 
 [![Pub Package](https://img.shields.io/pub/v/style_builder)](https://pub.dev/packages/style_builder)
 [![Project on github.com](https://img.shields.io/badge/repository-git%20hub-informational)](https://github.com/domain-centric/style_builder)
@@ -8,15 +8,14 @@
 [![Open issues on github.com](https://img.shields.io/github/issues/domain-centric/style_builder)](https://github.com/domain-centric/style_builder/issues)
 [![Open pull requests on github.com](https://img.shields.io/github/issues-pr/domain-centric/style_builder)](https://github.com/domain-centric/style_builder/pulls)
 [![Project License](https://img.shields.io/github/license/domain-centric/style_builder)](https://github.com/domain-centric/style_builder/blob/main/LICENSE.md)
- 
-# style_builder
-![](https://github.com/domain-centric/style_builder/wiki/style_builder.png)
 
-Welcome to [style_builder](https://pub.dev/packages/style_builder), the code generator for Flutter style (ThemeExtension) classes. 
-The code generator helps to:
-* minimize the required boilerplate code (without ugly part statements)
-* define cosmetic default values, that could be derived from the BuildContext (e.g. from the current theme)
-* resolve cosmetic values as intended by the flutter team 
-
-# Want to know more? 
-**Read the [style_builder wiki](https://github.com/domain-centric/style_builder/wiki)!**
+**Table of contents**
+* [**1 Style Builder**](1-Style-Builder)
+* [**2 Installation**](2-Installation)
+* [**3 Theme Extensions**](3-Theme-Extensions)
+* [**4 Defining your style classes**](4-Defining-your-style-classes)
+* [**5 Generating the style classes**](5-Generating-the-style-classes)
+* [**6 Generated style classes**](6-Generated-style-classes)
+* [**7 Using generated style classes**](7-Using-generated-style-classes)
+* [**8 Example project**](8-Example-project)
+* [**Home**](Home)

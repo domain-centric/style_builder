@@ -1,0 +1,3 @@
+The generated style classes will be placed in the same directory as the annotated class and will look something like this:
+
+{{importDartCode('example/lib/my_company.g.dart')}}

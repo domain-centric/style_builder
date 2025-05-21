@@ -1,0 +1,18 @@
+{{referenceLink('style_builder')}} is a generator for classes that are annotated with @GenerateStyleClass().
+
+The annotated class provides:
+* The cosmetic properties of the style class.
+* The name of the style class. It typically ends with "Default".
+  e.g. "MyWidgetDefault" will generate a "MyWidgetStyle" class.
+
+ An annotated class:
+* Must be a const class.
+* Provides default values for the all cosmetic properties. 
+  The properties and their default values are defined by either:
+  * none static final fields
+  * none static getter methods
+  * none static methods without parameters
+  * none static methods with a BuildContext parameter
+
+An example:
+{{importDartCode('example/lib/my_company.dart')}}
