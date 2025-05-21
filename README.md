@@ -8,7 +8,7 @@
 [![Open issues on github.com](https://img.shields.io/github/issues/domain-centric/style_builder)](https://github.com/domain-centric/style_builder/issues)
 [![Open pull requests on github.com](https://img.shields.io/github/issues-pr/domain-centric/style_builder)](https://github.com/domain-centric/style_builder/pulls)
 [![Project License](https://img.shields.io/github/license/domain-centric/style_builder)](https://github.com/domain-centric/style_builder/blob/main/LICENSE.md)
- 
+
 # style_builder
 ![](https://github.com/domain-centric/style_builder/wiki/style_builder.png)
 
