@@ -1,5 +1,5 @@
 {{allPubGitHubBadges()}}
- 
+
 # style_builder
 {{importTemplate('doc/template/doc/wiki/1-Style-Builder.md.template')}}
 
